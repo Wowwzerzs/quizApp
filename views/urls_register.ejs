@@ -19,8 +19,16 @@
     <%- include('partials/_header') %>
 
     <div class="login-signup-form">
-      <h1>Signup</h1>
-      <form method="POST" id="login-form" class="login-form" action="/login">
+      <h1>Sign up</h1>
+      <form
+        method="POST"
+        id="login-form"
+        class="login-form"
+        action="/users/signup"
+      >
+        <div class="login-form_wrapper">
+          <input type="text" name="name" placeholder="name" />
+        </div>
         <div class="login-form_wrapper">
           <input type="email" name="email" placeholder="email" />
         </div>
@@ -29,7 +37,7 @@
           <input type="password" name="password" placeholder="password" />
         </div>
 
-        <button type="submit" class="btn register">register</button>
+        <button type="submit" class="btn register">sign up</button>
       </form>
     </div>
 

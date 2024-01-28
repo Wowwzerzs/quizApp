@@ -1,5 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
+const { getPublicQuizzes } = require("./db/queries/index.js");
 
 // Web server config
 const sassMiddleware = require("./lib/sass-middleware");
@@ -46,10 +47,6 @@ app.use("/questions", quizRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 // app.get("/login", (req, res) => {
 //   res.render("urls_login");
