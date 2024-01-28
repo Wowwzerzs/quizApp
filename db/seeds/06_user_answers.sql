@@ -8,7 +8,7 @@ INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (2, 23);
 INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (2, 25);
 INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (2, 28);
 
-INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 33);
-INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 38);
-INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 39);
-INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 45);
+INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 27);
+INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 29);
+INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 10);
+INSERT INTO user_answers (quiz_attempt_id, answer_id) VALUES (3, 29);
