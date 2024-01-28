@@ -1,6 +1,9 @@
-.question-container {
-  width: 50%;
+.question-container-wrapper {
+  width: 70%;
   margin: 0 auto;
+}
+.question-container-wrapper h1 {
+  color: rgb(41, 41, 154);
 }
 
 .question-wrapper {
@@ -41,3 +44,7 @@
   font-size: 1.25rem;
   cursor: pointer;
 }
+
+// #main-content {
+//   padding: 2rem 10% 0 10%;
+// }

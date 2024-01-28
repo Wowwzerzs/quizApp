@@ -54,12 +54,11 @@
       </div> -->
 
       <!-- QUESTIONS -->
-
+      <!-- 
       <section class="question-container">
         <div>
+          <h1>Title of quiz</h1>
           <form method="POST" action="/question" class="question-form">
-            <!-- FIRST QUESTION -->
-
             <div class="question-wrapper">
               <div class="question">
                 <p>What is the best programming language?</p>
@@ -88,7 +87,6 @@
               </div>
             </div>
 
-            <!-- SECOND QUESTION -->
             <div class="question-wrapper">
               <div class="question">
                 <p>I am the second question?</p>
@@ -96,28 +94,47 @@
 
               <div class="option-container">
                 <div class="option">
-                  <input type="radio" name="option" id="option1" value="Javascript" />
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option1"
+                    value="Javascript"
+                  />
                   <label for="option1">Javascript</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option2" value="html" />
+                  <input
+                    type="radio"
+                    name="second"
+                    id="secondOption2"
+                    value="html"
+                  />
                   <label for="option2">html</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option3" value="css" />
+                  <input
+                    type="radio"
+                    name="second"
+                    id="secondOption3"
+                    value="css"
+                  />
                   <label for="option3">css</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option4" value="none of the above" />
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option4"
+                    value="none of the above"
+                  />
                   <label for="option4">none of the above</label>
                 </div>
               </div>
             </div>
 
-            <!-- THIRD QUESTION -->
             <div class="question-wrapper">
               <div class="question">
                 <p>I am the third question?</p>
@@ -125,22 +142,42 @@
 
               <div class="option-container">
                 <div class="option">
-                  <input type="radio" name="option" id="option1" value="Javascript" />
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option1"
+                    value="Javascript"
+                  />
                   <label for="option1">Javascript</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option2" value="html" />
+                  <input
+                    type="radio"
+                    name="third"
+                    id="thirdOption2"
+                    value="html"
+                  />
                   <label for="option2">html</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option3" value="css" />
+                  <input
+                    type="radio"
+                    name="third"
+                    id="thirdOption3"
+                    value="css"
+                  />
                   <label for="option3">css</label>
                 </div>
 
                 <div class="option">
-                  <input type="radio" name="option" id="option4" value="none of the above" />
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option4"
+                    value="none of the above"
+                  />
                   <label for="option4">none of the above</label>
                 </div>
               </div>
@@ -149,7 +186,209 @@
             <input type="submit" value="Submit" class="btn submit-btn-question" />
           </form>
         </div>
-      </section>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      </section> -->
+
+      <!--MY QUIZZES-->
+      <div class="container-list-quizzes">
+        <h1>List of quizzes</h1>
+        <section class="quiz-wrapper">
+          <div class="quiz-container">
+            <div class="name-wrapper">
+              <span>Quiz name</span>
+              <p>Math</p>
+            </div>
+            <div class="score-wrapper">
+              <span>Score</span>
+              <span>1</span>
+            </div>
+            <div class="attempts-wrapper">
+              <span>Number of attempts</span>
+              <span>1</span>
+            </div>
+          </div>
+          <button class="play-btn">play</button>
+          <select name="public-private" id="public-private">
+            <option value="public">public</option>
+            <option value="private">private</option>
+          </select>
+
+          <button class="delete-btn">delete</button>
+        </section>
+
+        <section class="quiz-wrapper">
+          <div class="quiz-container">
+            <div class="name-wrapper">
+              <span>Quiz name</span>
+              <p>Math</p>
+            </div>
+            <div class="score-wrapper">
+              <span>Score</span>
+              <span>1</span>
+            </div>
+            <div class="attempts-wrapper">
+              <span>Number of attempts</span>
+              <span>1</span>
+            </div>
+          </div>
+          <button class="play-btn">play</button>
+          <select name="public-private" id="public-private">
+            <option value="public">public</option>
+            <option value="private">private</option>
+          </select>
+
+          <button class="delete-btn">delete</button>
+        </section>
+
+        <section class="quiz-wrapper">
+          <div class="quiz-container">
+            <div class="name-wrapper">
+              <span>Quiz name</span>
+              <p>Math</p>
+            </div>
+            <div class="score-wrapper">
+              <span>Score</span>
+              <span>1</span>
+            </div>
+            <div class="attempts-wrapper">
+              <span>Number of attempts</span>
+              <span>1</span>
+            </div>
+          </div>
+          <button class="play-btn">play</button>
+          <select name="public-private" id="public-private">
+            <option value="public">public</option>
+            <option value="private">private</option>
+          </select>
+
+          <button class="delete-btn">delete</button>
+        </section>
+      </div>
+      <!-- CREATE QUIZ -->
+      <!-- <section class="create-quiz-container">
+        <h1>Create quiz</h1>
+        <Form>
+          <div class="question-container">
+            <h1>Question 1</h1>
+            <div class="create-question">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="create a question"
+              />
+            </div>
+
+            <div class="answers">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 1"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 2"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 3"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 4"
+              />
+            </div>
+          </div>
+
+          <div class="question-container">
+            <h1>Question 2</h1>
+            <div class="create-question">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="create a question"
+              />
+            </div>
+
+            <div class="answers">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 1"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 2"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 3"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 4"
+              />
+            </div>
+          </div>
+
+          <div class="question-container">
+            <h1>Question 3</h1>
+            <div class="create-question">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="create a question"
+              />
+            </div>
+
+            <div class="answers">
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 1"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 2"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 3"
+              />
+              <input
+                type="text"
+                name="option"
+                value=""
+                placeholder="answer 4"
+              />
+            </div>
+          </div>
+
+          <button class="btn-create-quiz">submit</button>
+        </Form>
+      </section> -->
     </main>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
