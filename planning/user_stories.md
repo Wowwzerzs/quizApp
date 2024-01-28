@@ -8,6 +8,8 @@
 
 * As a registered user,  I can create 3-question quizzes that have multiple choices of 3 answers, with 1/3 being the correct one, because I like making small quizzes and engaging others with quick challenges.
 
+* As a registered user, I can see the results of my recent attempt, because I want to review my performance and learn from my mistakes AND my selected options turn red or green depending on if they are right or wrong, providing immediate feedback on my performance and helping me learn.
+
 * As a registered user, I can make my quizzes unlisted, because I want to keep them private and only accessible to specific individuals.
 
 * As a registered user, I can share a link to a single quiz, because I want to invite others to take my quiz without making it public.
@@ -15,8 +17,6 @@
 * As a registered user, I can see a list of public quizzes, because I want to explore quizzes created by other users.
 
 * As a registered user, I can attempt a quiz, because I want to test my knowledge and skills.
-
-* As a registered user, I can see the results of my recent attempt, because I want to review my performance and learn from my mistakes AND my selected options turn red or green depending on if they are right or wrong, providing immediate feedback on my performance and helping me learn.
 
 * As a registered user, I can share a link to the result of my attempt, because I want to share my quiz results with others and compare my performance.
 
