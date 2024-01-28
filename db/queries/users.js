@@ -1,5 +1,6 @@
 const db = require('../connection');
 
+// To get all users from the database
 const getUsers = () => {
   return db.query('SELECT * FROM users;')
     .then(data => {
@@ -7,4 +8,19 @@ const getUsers = () => {
     });
 };
 
-module.exports = { getUsers };
+// To add a new user to the database
+const addUser = function (userName, plainPassword, email) {
+  return db.query(
+    `INSERT INTO users (name, password, email)
+    VALUES ($1, $2, $3)`,
+    [userName, plainPassword, email])
+    .then(data => {
+      return data.rows;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+module.exports = { getUsers, addUser };
+
