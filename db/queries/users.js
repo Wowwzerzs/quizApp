@@ -22,5 +22,20 @@ const addUser = function (userName, plainPassword, email) {
     });
 };
 
-module.exports = { getUsers, addUser };
+// To check if a user with a given email already exists in the database
+const userExists = function (email) {
+  return db.query(
+    `SELECT * FROM users
+    WHERE email = $1;
+    `,
+    [email])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+module.exports = { getUsers, addUser, userExists };
 
