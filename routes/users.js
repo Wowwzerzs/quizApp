@@ -10,6 +10,15 @@ const router  = express.Router();
 
 router.get('/', (req, res) => {
   res.render('users');
-}); 
+});
+
+router.get('/login/:id', (req, res) => {
+  // set the cookie
+  req.cookies.user_id = req.params.user_id;
+
+  // send to homepage
+  res.redirect('/home');
+
+})
 
 module.exports = router;
