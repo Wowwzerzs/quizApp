@@ -11,12 +11,49 @@
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/login-form.css" />
   </head>
 
   <body>
-    <h1>Hello World Im ejs 🥔</h1>
+    <%- include('partials/_header') %>
+    <main id="main-content">
+      <!-- TEMPORARY LOGIN-->
+
+      <!-- <div class="login-signup-form">
+        <h1>Login</h1>
+        <form id="login-form" class="login-form">
+          <div class="login-form_wrapper">
+            <input type="email" name="email" placeholder="email" />
+          </div>
+
+          <div class="login-form_wrapper">
+            <input type="password" name="password" placeholder="password" />
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div> -->
+
+      <!-- TEMPORARY REGISTER-->
+      <div class="login-signup-form">
+        <h1>Register</h1>
+        <form method="POST" id="login-form" class="login-form" action="/login">
+          <div class="login-form_wrapper">
+            <input type="email" name="email" placeholder="email" />
+          </div>
+
+          <div class="login-form_wrapper">
+            <input type="password" name="password" placeholder="password" />
+          </div>
+
+          <button type="submit" class="btn register">register</button>
+        </form>
+      </div>
+    </main>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script defer src="/scripts/app.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="scripts/components/header.js"></script>
   </body>
 </html>
