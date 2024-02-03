@@ -1,0 +1,33 @@
+.page-header_user-links {
+  background-color: rgb(75, 75, 236);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  color: white;
+  font-size: 1.25rem;
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      cursor: pointer;
+    }
+  }
+}
+.login {
+  margin-right: 1rem;
+}
+.quiz-app-logo {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+}
+
+.quizzes {
+  margin-right: auto;
+}
+
+.my-quizzes {
+  margin-right: 1rem;
+}

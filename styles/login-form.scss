@@ -1,0 +1,33 @@
+.login-signup-form {
+  background-color: rgb(243, 243, 243);
+  width: 20rem;
+  height: 20rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 7rem auto;
+  h1 {
+    color: rgb(75, 75, 236);
+  }
+}
+
+.login-form_wrapper {
+  margin-bottom: 1rem;
+  input {
+    width: 100%;
+    height: 2rem;
+  }
+}
+
+.btn {
+  border: none;
+  background-color: rgb(75, 75, 236);
+  height: 1.75rem;
+  width: 4rem;
+  border-radius: 2px;
+  margin: 1.5rem 0 3rem 0;
+  color: white;
+}
+
+.register {
+  padding: 1rem 1.5;
+}
