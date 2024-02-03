@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/login-form.css" />
+    <link rel="stylesheet" href="/styles/question.css" />
   </head>
 
   <body>
     <%- include('partials/_header') %>
     <main id="main-content">
-      <!-- TEMPORARY LOGIN-->
+      <!--  LOGIN FORM-->
 
       <!-- <div class="login-signup-form">
         <h1>Login</h1>
@@ -35,8 +36,8 @@
         </form>
       </div> -->
 
-      <!-- TEMPORARY REGISTER-->
-      <div class="login-signup-form">
+      <!--  REGISTER FORM-->
+      <!-- <div class="login-signup-form">
         <h1>Register</h1>
         <form method="POST" id="login-form" class="login-form" action="/login">
           <div class="login-form_wrapper">
@@ -49,11 +50,142 @@
 
           <button type="submit" class="btn register">register</button>
         </form>
-      </div>
+      </div> -->
+
+      <!-- QUESTIONS -->
+
+      <section class="question-container">
+        <div>
+          <form method="POST" action="/question" class="question-form">
+            <!-- FIRST QUESTION -->
+
+            <div class="question-wrapper">
+              <div class="question">
+                <p>What is the best programming language?</p>
+              </div>
+
+              <div class="option-container">
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option1"
+                    value="Javascript"
+                  />
+                  <label for="option1">Javascript</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option2" value="html" />
+                  <label for="option2">html</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option3" value="css" />
+                  <label for="option3">css</label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option4"
+                    value="none of the above"
+                  />
+                  <label for="option4">none of the above</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECOND QUESTION -->
+            <div class="question-wrapper">
+              <div class="question">
+                <p>I am the second question?</p>
+              </div>
+
+              <div class="option-container">
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option1"
+                    value="Javascript"
+                  />
+                  <label for="option1">Javascript</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option2" value="html" />
+                  <label for="option2">html</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option3" value="css" />
+                  <label for="option3">css</label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option4"
+                    value="none of the above"
+                  />
+                  <label for="option4">none of the above</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- THIRD QUESTION -->
+            <div class="question-wrapper">
+              <div class="question">
+                <p>I am the third question?</p>
+              </div>
+
+              <div class="option-container">
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option1"
+                    value="Javascript"
+                  />
+                  <label for="option1">Javascript</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option2" value="html" />
+                  <label for="option2">html</label>
+                </div>
+
+                <div class="option">
+                  <input type="radio" name="option" id="option3" value="css" />
+                  <label for="option3">css</label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    name="option"
+                    id="option4"
+                    value="none of the above"
+                  />
+                  <label for="option4">none of the above</label>
+                </div>
+              </div>
+            </div>
+
+            <input
+              type="submit"
+              value="Submit"
+              class="btn submit-btn-question"
+            />
+          </form>
+        </div>
+      </section>
     </main>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
-    <script src="scripts/components/header.js"></script>
   </body>
 </html>

@@ -1,0 +1,43 @@
+.question-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.question-wrapper {
+  background-color: white;
+}
+.question {
+  background-color: rgb(75, 75, 236);
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+
+  p {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.option-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+.option {
+  font-size: 1.4rem;
+}
+
+.option input,
+.option label {
+  cursor: pointer;
+}
+
+.submit-btn-question {
+  width: 6rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
