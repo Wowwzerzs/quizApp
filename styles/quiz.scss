@@ -1,6 +1,6 @@
 .quiz-wrapper {
   background-color: rgb(41, 41, 154);
-  width: 60%;
+  width: 70%;
   margin: 2rem auto 0 auto;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,8 @@
   align-items: center;
 }
 
-.delete-btn {
+.delete-btn,
+.play-btn {
   border: none;
   background-color: none;
   cursor: pointer;
@@ -55,5 +56,13 @@
 #public-private {
   height: 2rem;
   width: 5rem;
-  border-radius: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.container-list-quizzes {
+  text-align: center;
+  h1 {
+    color: rgb(41, 41, 154);
+  }
 }
