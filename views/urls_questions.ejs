@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/login-form.css" />
+  </head>
+
+  <body>
+    <%- include('partials/_header') %>
+
+    <section class="question-container">
+      <div>
+        <form method="POST" action="/question" class="question-form">
+          <div class="question-wrapper">
+            <div class="question">
+              <p>What is the best programming language?</p>
+            </div>
+
+            <div class="option-container">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option1"
+                  value="Javascript"
+                />
+                <label for="option1">Javascript</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option2" value="html" />
+                <label for="option2">html</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option3" value="css" />
+                <label for="option3">css</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option4"
+                  value="none of the above"
+                />
+                <label for="option4">none of the above</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-wrapper">
+            <div class="question">
+              <p>I am the second question?</p>
+            </div>
+
+            <div class="option-container">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option1"
+                  value="Javascript"
+                />
+                <label for="option1">Javascript</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option2" value="html" />
+                <label for="option2">html</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option3" value="css" />
+                <label for="option3">css</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option4"
+                  value="none of the above"
+                />
+                <label for="option4">none of the above</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-wrapper">
+            <div class="question">
+              <p>I am the third question?</p>
+            </div>
+
+            <div class="option-container">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option1"
+                  value="Javascript"
+                />
+                <label for="option1">Javascript</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option2" value="html" />
+                <label for="option2">html</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="option" id="option3" value="css" />
+                <label for="option3">css</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="option"
+                  id="option4"
+                  value="none of the above"
+                />
+                <label for="option4">none of the above</label>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="Submit" class="btn submit-btn-question" />
+        </form>
+      </div>
+    </section>
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="scripts/components/header.js"></script>
+  </body>
+</html>
