@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.set("view engine", "ejs");
-
+app.use(express.json());
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -35,9 +35,10 @@ const usersRoutes = require("./routes/users");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use("/api/users", userApiRoutes);
+// app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -47,6 +48,10 @@ app.use("/users", usersRoutes);
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+// app.get("/login", (req, res) => {
+//   res.render("urls_login");
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
