@@ -12,7 +12,7 @@ const addUser = function (userName, plainPassword, email) {
   return db
     .query(
       `INSERT INTO users (name, password, email)
-    VALUES ($1, $2, $3)`,
+    VALUES ($1, $2, $3) RETURNING *`,
       [userName, plainPassword, email]
     )
     .then((data) => {
