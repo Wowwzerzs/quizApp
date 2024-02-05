@@ -48,9 +48,9 @@ app.use("/questions", quizRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-// app.get("/login", (req, res) => {
-//   res.render("urls_login");
-// });
+app.get("/", (req, res) => {
+  res.render("urls_my_quizzes");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
