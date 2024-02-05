@@ -59,6 +59,7 @@ router.post("/signup", (req, res) => {
   if (!email || !password || !name) {
     res.send("invalid credentials");
   }
+
   addUser(name, password, email).then((data) => {
     console.log(data[0]);
     res.redirect("/api/widgets/login");

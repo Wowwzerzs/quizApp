@@ -19,4 +19,8 @@ $(document).ready(function () {
   $(".play-btn").on("click", () => {
     window.location.href = "/questions";
   });
+
+  $(".logout-btn").on("click", () => {
+    window.location.href = "/api/widgets/logout";
+  });
 });
