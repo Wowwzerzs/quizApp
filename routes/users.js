@@ -9,16 +9,32 @@ const express = require("express");
 const router = express.Router();
 const { getUsers, userExists, addUser } = require("../db/queries/users");
 
+const findUserById = (id, arr) => {
+  return arr.filter((user) => user.id === id);
+};
+
+//HOME
 router.get("/quizzes", (req, res) => {
-  res.render("urls_my_quizzes");
+  const { userId } = req.session;
+
+  getUsers().then((user) => {
+    const currentUser = findUserById(userId, user);
+
+    const templateVars = { user: currentUser[0] };
+    res.render("urls_my_quizzes", templateVars);
+  });
 });
 
+//CREATE QUIZE
 router.get("/create-quiz", (req, res) => {
   res.render("urls_create_quiz");
 });
 
+//LOGIN
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
+
+  console.log(req.session.userId);
 
   if (!email || !password) {
     res.send("invalid password");
@@ -31,6 +47,8 @@ router.post("/login", (req, res) => {
     if (password !== user.password) {
       res.send("invalid password");
     }
+    req.session.userId = user.id;
+
     res.redirect("/users/quizzes");
   });
 });

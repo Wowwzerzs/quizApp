@@ -5,9 +5,22 @@
       <li class="my-quizzes">My quizzes</li>
       <li class="create-quizzes">Create new quiz</li>
     </ul>
+
+    <% if(user){ %>
+    <h3 class="hello-name">Hello <%= user.name %></h3>
+
+    <button type="submit" class="logout-btn">Logout</button>
+
+    <% } else{ %>
     <ul class="login-signup">
       <li class="login">Login</li>
       <li class="sign-up">Sign Up</li>
     </ul>
+    <% } %>
+
+    <!-- <ul class="login-signup">
+      <li class="login">Login</li>
+      <li class="sign-up">Sign Up</li>
+    </ul> -->
   </nav>
 </header>

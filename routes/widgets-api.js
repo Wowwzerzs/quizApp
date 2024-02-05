@@ -7,7 +7,7 @@
 
 const express = require("express");
 const router = express.Router();
-const db = require("../db/connection");
+const { getUsers } = require("../db/queries/users");
 
 // router.get("/", (req, res) => {
 //   //   const query = `SELECT * FROM widgets`;
@@ -22,8 +22,20 @@ const db = require("../db/connection");
 //   //     });
 // });
 
+const findUserById = (id, arr) => {
+  return arr.filter((user) => user.id === id);
+};
+
 router.get("/login", (req, res) => {
-  res.render("urls_login");
+  const { userId } = req.session;
+  getUsers().then((user) => {
+    const currentUser = findUserById(userId, user);
+
+    const templateVars = { user: currentUser[0] };
+    res.render("urls_login", templateVars);
+  });
+
+  // res.render("urls_login");
 });
 
 router.get("/signup", (req, res) => {
