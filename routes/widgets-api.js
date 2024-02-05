@@ -39,7 +39,15 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  res.render("urls_register");
+  const templateVars = {
+    user: null,
+  };
+  res.render("urls_register", templateVars);
+});
+
+router.get("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/api/widgets/login");
 });
 
 module.exports = router;
