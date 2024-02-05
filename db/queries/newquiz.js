@@ -1,4 +1,4 @@
-const db = require('../connection');
+const db = require("../connection");
 
 // Creates a new question for a quiz.
 // Returns a promise that resolves to the created question object.
@@ -12,10 +12,10 @@ const createQuestion = function (quizId, question) {
     const params = [quizId, question];
 
     db.query(query, params)
-      .then(data => {
+      .then((data) => {
         resolve(data.rows[0]);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -33,17 +33,22 @@ const insertAnswer = function (questionId, answer, isCorrect) {
     const params = [questionId, answer, isCorrect];
 
     db.query(query, params)
-      .then(data => {
+      .then((data) => {
         resolve(data.rows[0]);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 };
 
 // Creates a new quiz along with its questions and answers.
-const createNewQuiz = async function (userId, quizTitle, generatorObj, privacy) {
+const createNewQuiz = async function (
+  userId,
+  quizTitle,
+  generatorObj,
+  privacy
+) {
   try {
     const query = `
       INSERT INTO quizzes (quiz_owner_id, title, public)
@@ -67,7 +72,6 @@ const createNewQuiz = async function (userId, quizTitle, generatorObj, privacy) 
         await insertAnswer(questionId, answer, isCorrect);
       }
     }
-
   } catch (error) {
     console.error(error);
   }
@@ -76,5 +80,5 @@ const createNewQuiz = async function (userId, quizTitle, generatorObj, privacy) 
 module.exports = {
   createQuestion,
   insertAnswer,
-  createNewQuiz
+  createNewQuiz,
 };
