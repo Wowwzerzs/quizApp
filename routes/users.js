@@ -8,6 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const { getUsers, userExists, addUser } = require("../db/queries/users");
+const { getQuizById } = require("../db/queries/quiz");
 
 const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
@@ -17,17 +18,43 @@ const findUserById = (id, arr) => {
 router.get("/quizzes", (req, res) => {
   const { userId } = req.session;
 
-  getUsers().then((user) => {
-    const currentUser = findUserById(userId, user);
+  getUsers()
+    .then((user) => {
+      const currentUser = findUserById(userId, user);
+      // console.log(currentUser[0]);
 
-    const templateVars = { user: currentUser[0] };
-    res.render("urls_my_quizzes", templateVars);
-  });
+      // getQuizById(userId).then((data) => {
+      //   data;
+
+      // });
+      //get quiz title, score and number of attempts
+
+      // const templateVars = { user: currentUser[0] };
+      // res.render("urls_my_quizzes", templateVars);
+      return currentUser[0];
+    })
+    .then((user) => {
+      getQuizById(user.id).then((data) => {
+        // console.log(data.title);
+        const templateVars = { user, title: data.title };
+        res.render("urls_my_quizzes", templateVars);
+        // return data.title;
+      });
+      console.log(title);
+    });
 });
 
-//CREATE QUIZE
+//CREATE QUIZE PAGE
 router.get("/create-quiz", (req, res) => {
-  res.render("urls_create_quiz");
+  const { userId } = req.session;
+
+  console.log(req.body);
+  getUsers().then((user) => {
+    const currentUser = findUserById(userId, user);
+    console.log(currentUser);
+    const templateVars = { user: currentUser[0] };
+    res.render("urls_create_quiz", templateVars);
+  });
 });
 
 //LOGIN
