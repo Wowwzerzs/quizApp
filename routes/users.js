@@ -60,9 +60,20 @@ router.post("/signup", (req, res) => {
     res.send("invalid credentials");
   }
 
-  addUser(name, password, email).then((data) => {
-    console.log(data[0]);
-    res.redirect("/api/widgets/login");
+  userExists(email).then((user) => {
+    if (!user) {
+      addUser(name, password, email).then((data) => {
+        console.log(data[0]);
+        res.redirect("/api/widgets/login");
+        // return data[0];
+      });
+    }
+
+    if (user.email === email) {
+      res.send("email already exist");
+    }
+
+    return user;
   });
 });
 
