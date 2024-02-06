@@ -23,4 +23,8 @@ $(document).ready(function () {
   $(".logout-btn").on("click", () => {
     window.location.href = "/api/widgets/logout";
   });
+
+  $(".btn-create-quiz").on("click", () => {
+    window.location.href = "/users/create-quiz";
+  });
 });
