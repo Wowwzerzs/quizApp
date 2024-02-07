@@ -27,7 +27,7 @@
         <div>
           <h1>Title of quiz</h1>
           <form method="POST" action="/question" class="question-form">
-            <div class="question-wrapper">
+            <!-- <div class="question-wrapper">
               <div class="question">
                 <p>What is the best programming language?</p>
               </div>
@@ -65,109 +65,36 @@
               </div>
             </div>
 
-            <div class="question-wrapper">
-              <div class="question">
-                <p>I am the second question?</p>
-              </div>
-
-              <div class="option-container">
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="second"
-                    id="secondOption1"
-                    value="Javascript"
-                  />
-                  <label for="option1">Javascript</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="second"
-                    id="secondOption2"
-                    value="html"
-                  />
-                  <label for="option2">html</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="second"
-                    id="secondOption3"
-                    value="css"
-                  />
-                  <label for="option3">css</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="second"
-                    id="secondOption4"
-                    value="none of the above"
-                  />
-                  <label for="option4">none of the above</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="question-wrapper">
-              <div class="question">
-                <p>I am the third question?</p>
-              </div>
-
-              <div class="option-container">
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="third"
-                    id="thirdOption1"
-                    value="Javascript"
-                  />
-                  <label for="option1">Javascript</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="third"
-                    id="thirdOption2"
-                    value="html"
-                  />
-                  <label for="option2">html</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="third"
-                    id="thirdOption3"
-                    value="css"
-                  />
-                  <label for="option3">css</label>
-                </div>
-
-                <div class="option">
-                  <input
-                    type="radio"
-                    name="third"
-                    id="thirdOption4"
-                    value="none of the above"
-                  />
-                  <label for="option4">none of the above</label>
-                </div>
-              </div>
-            </div>
-
             <input
               type="submit"
               value="Submit"
               class="btn submit-btn-question"
             />
           </form>
-        </div>
+        </div> -->
+
+        <!-- your-template-name.ejs -->
+
+<% for (let i = 0; i < questions.length; i++) { %>
+  <div class="question-wrapper">
+    <div class="question">
+      <p><%= questions[i] %></p>
+    </div>
+
+    <div class="option-container">
+      <!-- Add your option-container and options here -->
+      <!-- Make sure to update input IDs, labels, and values accordingly -->
+      <!-- Example for the first option -->
+      <div class="option">
+        <input type="radio" name="option" id="option<%= i + 1 %>" value="Option <%= i + 1 %>" />
+        <label for="option<%= i + 1 %>">Option <%= i + 1 %></label>
+      </div>
+
+      <!-- Repeat similar blocks for other options as needed -->
+    </div>
+  </div>
+<% } %>
+
       </section>
     </main>
 

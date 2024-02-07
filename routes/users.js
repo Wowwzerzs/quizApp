@@ -36,11 +36,19 @@ router.get("/quizzes", (req, res) => {
     .then((user) => {
       getQuizById(user.id).then((data) => {
         // console.log(data.title);
-        const templateVars = { user, title: data.title };
+        console.log(data);
+
+        const templateVars = {
+          user: user ? user : null,
+          title: data.title,
+          id: data.id,
+        };
         res.render("urls_my_quizzes", templateVars);
         // return data.title;
       });
-      console.log(title);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 });
 

@@ -5,3 +5,4 @@ CREATE table quiz_questions (
   quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
   question VARCHAR(255) NOT NULL
 );
+
