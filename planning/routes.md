@@ -8,23 +8,23 @@
 * Main focus
 
 - GET     /users             # Get all users
-- GET     /users/:id         # Get a specific user by ID
+-* GET     /users/:id         # Get a specific user by ID
 
-- GET     /quizzes           # Get all quizzes
-- GET     /quizzes/:id       # Get a specific quiz by ID
+-* GET     /quizzes           # Get all quizzes
+-* GET     /quizzes/:id       # Get a specific quiz by ID
 - 
-- GET     /attempts/:id      # Get a specific attempt by ID
-- GET     /results/:id       # Get the results of a specific attempt by ID
+-* GET     /attempts/:id      # Get a specific attempt by ID
+-* GET     /results/:id       # Get the results of a specific attempt by ID
 - 
 - POST    /users/:id         # Edit a specific user by ID
 - POST    /users             # Add a new user
 - POST    /users/:id/delete  # Delete a specific user by ID
 - POST    /list              # Add a new list
 - POST    /lists/:id/delete  # Delete a specific list by ID
-- POST    /quizzes           # Add a new quiz
+-* POST    /quizzes           # Add a new quiz
 - 
-- POST    /quizzes/:id/delete  # Delete a specific quiz by ID
-- POST    /attempts            # Add a new attempt
+-* POST    /quizzes/:id/delete  # Delete a specific quiz by ID
+-* POST    /attempts            # Add a new attempt
 
 * Additional 
 
