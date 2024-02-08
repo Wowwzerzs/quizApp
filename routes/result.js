@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { getQuestionsCorrectAnswers, getUserProvidedAnswers } = require('../db/queries/results');
-const { getUserById } = require('../db/queries/userinfo.js');
+const { getQuestionsCorrectAnswers, getUserProvidedAnswers } = require("../db/queries/results");
+const { getUserById } = require("../db/queries/userinfo.js");
 
 // Route to fetch quiz results by quizResultId
-router.get('/:quizResultId', async (req, res) => {
+router.get("/:quizResultId", async (req, res) => {
   try {
     // Fetch user information for _header.ejs conditionals
     const user = await getUserById(req.session.userId);
@@ -27,10 +27,10 @@ router.get('/:quizResultId', async (req, res) => {
     // Check if providedAnswersData is null and set templateVars.answers accordingly
     templateVars.answers = providedAnswersData ? providedAnswersData[0].answers : [];
 
-    res.render('result', templateVars);
+    res.render("result", templateVars);
   } catch (err) {
-    console.error('Error loading quiz result: ', err);
-    res.redirect(302, `/error?message=${encodeURIComponent('Result not found')}`);
+    console.error("Error loading quiz result: ", err);
+    res.redirect(302, `/error?message=${encodeURIComponent("Result not found")}`);
   }
 });
 
