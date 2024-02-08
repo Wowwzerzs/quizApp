@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { getUsers } = require("../db/queries/users");
-const { getQuizQuestionByID } = require("../db/queries/quiz");
+const {
+  getQuizQuestionByID,
+  getAnswersByQuestionId,
+} = require("../db/queries/quiz");
 const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
 };
@@ -28,21 +31,54 @@ const findUserById = (id, arr) => {
 // });
 
 router.get("/:id", async (req, res) => {
-  const { userId } = req.session;
-  const { id: quizId } = req.params;
+  try {
+    const { userId } = req.session;
+    const { id: quizId } = req.params;
 
-  const [user, questionsObj] = await Promise.all([
-    getUsers(),
-    getQuizQuestionByID(quizId),
-  ]);
-  const currentUser = findUserById(userId, user);
+    const [user, questionsObj] = await Promise.all([
+      getUsers(),
+      getQuizQuestionByID(quizId),
+      // getAnswersByQuestionId(),
+    ]);
 
-  const questionsOnly = questionsObj.map((quiz) => {
-    return quiz.question;
-  });
+    const [questionsIdOne, questionsIdTwo, questionsIdThree] = questionsObj.map(
+      (user) => user.id
+    );
 
-  const templateVars = { user: currentUser[0], questions: questionsOnly };
-  res.render("urls_questions", templateVars);
+    const answersToQ1 = await getAnswersByQuestionId(questionsIdOne);
+    const answersToQ2 = await getAnswersByQuestionId(questionsIdTwo);
+    const answersToQ3 = await getAnswersByQuestionId(questionsIdThree);
+    // console.log(answersToQ1);
+    const answersOnlyToOne = answersToQ1.map((question) => question.answer);
+    const answersOnlyToTwo = answersToQ2.map((question) => question.answer);
+    const answersOnlyToThree = answersToQ3.map((question) => question.answer);
+
+    const currentUser = findUserById(userId, user);
+
+    const questionsOnly = questionsObj.map((quiz) => {
+      return quiz.question;
+    });
+
+    // console.log(questionsObj);
+    // const answersOnly = answers.map((answers) => {
+
+    //   return answers.answer;
+    // });
+    // console.log(answersOnly);
+
+    // console.log(answers);
+    const templateVars = {
+      user: currentUser[0],
+      questions: questionsOnly,
+      answersOne: answersOnlyToOne,
+      answersTwo: answersOnlyToTwo,
+      answersThree: answersOnlyToThree,
+    };
+
+    res.render("urls_questions", templateVars);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
