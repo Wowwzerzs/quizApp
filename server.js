@@ -51,6 +51,7 @@ const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz");
 const resultRoutes = require("./routes/result");
 const errorRoutes = require("./routes/error");
+const homeRoutes = require("./routes/index");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
