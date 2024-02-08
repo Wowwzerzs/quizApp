@@ -9,6 +9,7 @@ const express = require("express");
 const router = express.Router();
 const { getUsers, userExists, addUser } = require("../db/queries/users");
 const { getQuizById } = require("../db/queries/quiz");
+const { getResultByUserIdAndQuizId } = require("../db/queries/results");
 
 const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
@@ -60,11 +61,15 @@ router.get("/quizzes", async (req, res) => {
 
     const currentUser = findUserById(userId, user);
     const data = await getQuizById(currentUser[0].id);
-
+    const result = await getResultByUserIdAndQuizId(currentUser[0].id, data.id);
+    const score = result[0].quiz_result;
+    // console.log(score);
+    // console.log(currentUser[0].name);
     const templateVars = {
-      user: user ? user : null,
+      user: currentUser[0],
       title: data.title,
       id: data.id,
+      score,
     };
     res.render("urls_my_quizzes", templateVars);
   } catch (error) {
