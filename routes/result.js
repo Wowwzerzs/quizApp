@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { getQuestionsCorrectAnswers, getUserProvidedAnswers } = require("../db/queries/results");
-const { getUserById } = require("../db/queries/userinfo.js");
+const { getUserById } = require("../db/queries/users");
 
 // Route to fetch quiz results by quizResultId
 router.get("/:quizResultId", async (req, res) => {
