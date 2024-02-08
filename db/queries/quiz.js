@@ -189,6 +189,26 @@ const getQuizQuestionByID = function (quizId) {
     });
 };
 
+const getAnswersByQuestionId = function (questionID) {
+  return db
+    .query(
+      `
+    
+      SELECT *
+      FROM quiz_answers
+      WHERE quiz_answer_id = $1
+   
+  `,
+      [questionID]
+    )
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 module.exports = {
   createQuizArray,
   insertQuizAttempt,
@@ -199,4 +219,5 @@ module.exports = {
   quizExistCheck,
   getQuizById,
   getQuizQuestionByID,
+  getAnswersByQuestionId,
 };

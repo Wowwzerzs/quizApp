@@ -14,42 +14,96 @@ const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
 };
 
-//HOME
-router.get("/quizzes", (req, res) => {
-  const { userId } = req.session;
+// //HOME
+// router.get("/quizzes", (req, res) => {
+//   const { userId } = req.session;
 
-  getUsers()
-    .then((user) => {
-      const currentUser = findUserById(userId, user);
-      // console.log(currentUser[0]);
+//   getUsers()
+//     .then((user) => {
+//       const currentUser = findUserById(userId, user);
+//       // console.log(currentUser[0]);
 
-      // getQuizById(userId).then((data) => {
-      //   data;
+//       // getQuizById(userId).then((data) => {
+//       //   data;
 
-      // });
-      //get quiz title, score and number of attempts
+//       // });
+//       //get quiz title, score and number of attempts
 
-      // const templateVars = { user: currentUser[0] };
-      // res.render("urls_my_quizzes", templateVars);
-      return currentUser[0];
-    })
-    .then((user) => {
-      getQuizById(user.id).then((data) => {
-        // console.log(data.title);
-        console.log(data);
+//       // const templateVars = { user: currentUser[0] };
+//       // res.render("urls_my_quizzes", templateVars);
+//       return currentUser[0];
+//     })
+//     .then((user) => {
+//       getQuizById(user.id).then((data) => {
+//         // console.log(data.title);
+//         console.log(data);
 
-        const templateVars = {
-          user: user ? user : null,
-          title: data.title,
-          id: data.id,
-        };
-        res.render("urls_my_quizzes", templateVars);
-        // return data.title;
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+//         const templateVars = {
+//           user: user ? user : null,
+//           title: data.title,
+//           id: data.id,
+//         };
+//         res.render("urls_my_quizzes", templateVars);
+//         // return data.title;
+//       });
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
+
+router.get("/quizzes", async (req, res) => {
+  try {
+    const { userId } = req.session;
+
+    const user = await getUsers();
+
+    const currentUser = findUserById(userId, user);
+    const data = await getQuizById(currentUser[0].id);
+
+    const templateVars = {
+      user: user ? user : null,
+      title: data.title,
+      id: data.id,
+    };
+    res.render("urls_my_quizzes", templateVars);
+  } catch (error) {
+    console.log(error);
+  }
+
+  // getUsers(),
+  // getQuizById(user.id)
+  //   .then((user) => {
+
+  //     // console.log(currentUser[0]);
+
+  //     // getQuizById(userId).then((data) => {
+  //     //   data;
+
+  //     // });
+  //     //get quiz title, score and number of attempts
+
+  //     // const templateVars = { user: currentUser[0] };
+  //     // res.render("urls_my_quizzes", templateVars);
+  //     // return currentUser[0];
+  //   })
+  //   .then((user) => {
+  //     getQuizById(user.id).then((data) => {
+  //       // console.log(data.title);
+  //       console.log(data);
+
+  //       const templateVars = {
+  //         user: user ? user : null,
+  //         title: data.title,
+  //         id: data.id,
+  //       };
+  //       res.render("urls_my_quizzes", templateVars);
+  //       // return data.title;
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 });
 
 //CREATE QUIZE PAGE
