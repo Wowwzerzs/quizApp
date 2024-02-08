@@ -169,6 +169,46 @@ const getQuizById = function (quizId) {
     });
 };
 
+const getQuizQuestionByID = function (quizId) {
+  return db
+    .query(
+      `
+    
+      SELECT *
+      FROM quiz_questions
+      WHERE quiz_id = $1
+   
+  `,
+      [quizId]
+    )
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+const getAnswersByQuestionId = function (questionID) {
+  return db
+    .query(
+      `
+    
+      SELECT *
+      FROM quiz_answers
+      WHERE quiz_answer_id = $1
+   
+  `,
+      [questionID]
+    )
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 module.exports = {
   createQuizArray,
   insertQuizAttempt,
@@ -178,4 +218,6 @@ module.exports = {
   addQuizResult,
   quizExistCheck,
   getQuizById,
+  getQuizQuestionByID,
+  getAnswersByQuestionId,
 };

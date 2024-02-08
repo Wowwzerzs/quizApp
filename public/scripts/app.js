@@ -16,9 +16,9 @@ $(document).ready(function () {
     window.location.href = "/users/quizzes";
   });
 
-  $(".play-btn").on("click", () => {
-    window.location.href = "/questions";
-  });
+  // $(".play-btn").on("click", () => {
+  //   window.location.href = "/questions";
+  // });
 
   $(".logout-btn").on("click", () => {
     window.location.href = "/api/widgets/logout";

@@ -22,8 +22,7 @@
   align-items: center;
 }
 
-.delete-btn,
-.play-btn {
+.delete-btn {
   border: none;
   background-color: none;
   cursor: pointer;
@@ -66,4 +65,9 @@
   h1 {
     color: rgb(41, 41, 154);
   }
+}
+
+.play-btn {
+  color: white;
+  text-decoration: none;
 }

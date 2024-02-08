@@ -32,14 +32,14 @@
             </div>
             <div class="score-wrapper">
               <span>Score</span>
-              <span>0</span>
+              <span><%= score %></span>
             </div>
             <div class="attempts-wrapper">
               <span>Number of attempts</span>
               <span>0</span>
             </div>
           </div>
-          <button class="play-btn">try now</button>
+          <a class="play-btn" href="/questions/<%= id %>">TRY NOW</a>
           <select name="public-private" id="public-private">
             <option value="public">public</option>
             <option value="private">private</option>
