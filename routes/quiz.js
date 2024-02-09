@@ -11,6 +11,7 @@ const {
   getResultByUserIdAndQuizId,
   updateScore,
 } = require("../db/queries/results");
+const { route } = require("./users");
 
 const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
