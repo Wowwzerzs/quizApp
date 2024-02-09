@@ -7,18 +7,19 @@
     </ul>
 
     <% if(user){ %>
-    <h3 class="hello-name">Hello! <%= user.name %></h3>
+      <h3 class="hello-name">Hello! <%= user.name %>
+      </h3>
 
-    <button type="submit" class="logout-btn">Logout</button>
+      <button type="submit" class="logout-btn">Logout</button>
 
-    <% } else{ %>
-    <ul class="login-signup">
-      <li class="login">Login</li>
-      <li class="sign-up">Sign Up</li>
-    </ul>
-    <% } %>
+      <% } else{ %>
+        <ul class="login-signup">
+          <li class="login">Login</li>
+          <li class="sign-up">Sign Up</li>
+        </ul>
+        <% } %>
 
-    <!-- <ul class="login-signup">
+          <!-- <ul class="login-signup">
       <li class="login">Login</li>
       <li class="sign-up">Sign Up</li>
     </ul> -->
