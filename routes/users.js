@@ -255,4 +255,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/create-quiz", (req, res) => {
+  console.log(req.body);
+  res.send("ok");
+});
+
 module.exports = router;

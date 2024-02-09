@@ -1,3 +1,27 @@
+// <<<<<<< newroute
+// const express = require("express");
+// const router = express.Router();
+// const { getUsers } = require("../db/queries/users");
+// const {
+//   getQuizQuestionByID,
+//   getAnswersByQuestionId,
+//   getQuizById,
+// } = require("../db/queries/quiz");
+
+// const {
+//   getResultByUserIdAndQuizId,
+//   updateScore,
+// } = require("../db/queries/results");
+// const { route } = require("./users");
+
+// const findUserById = (id, arr) => {
+//   return arr.filter((user) => user.id === id);
+// };
+
+// router.get("/:id", (req, res) => {
+//   const { userId } = req.session;
+//   const { id: quizId } = req.params;
+// =======
 // const express = require("express");
 // const router = express.Router();
 // const { getUsers } = require("../db/queries/users");
@@ -69,6 +93,7 @@
 //     const answersOnlyToTHreeBoolean = answersToQ1.map(
 //       (question) => question.correct
 //     );
+// >>>>>>> master
 
 //     const currentUser = findUserById(userId, user);
 
