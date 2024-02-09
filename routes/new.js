@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     const templateVars = {
       user
     };
-    res.render("../views/new_quiz", templateVars);
+    res.render("../views/urls_create_quiz", templateVars);
 
   } catch (error) {
     console.error(error);
