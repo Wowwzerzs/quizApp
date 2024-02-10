@@ -47,7 +47,7 @@ router.get("/signup", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.session = null;
-  res.redirect("/api/widgets/login");
+  res.redirect("/api/widgets/login"); rs
 });
 
 module.exports = router;

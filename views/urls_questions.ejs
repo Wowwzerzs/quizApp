@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/header.css" />
-    <link rel="stylesheet" href="/styles/login-form.css" />
-    <link rel="stylesheet" href="/styles/question.css" />
-    <link rel="stylesheet" href="/styles/quiz.css" />
-    <link rel="stylesheet" href="/styles/create-quiz.css" />
-  </head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <%- include('partials/_header') %>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/login-form.css" />
+  <link rel="stylesheet" href="/styles/question.css" />
+  <link rel="stylesheet" href="/styles/quiz.css" />
+  <link rel="stylesheet" href="/styles/create-quiz.css" />
+</head>
+
+<body>
+  <%- include('partials/_header') %>
     <main id="main-content">
       <!-- QUESTIONS -->
 
       <section class="question-container-wrapper">
         <div>
           <h1>Title of quiz</h1>
-          <form method="POST" action="/questions/result" class="question-form">
+          <form method="POST" action="/result" class="question-form">
             <div class="question-wrapper">
               <div class="question">
-                <p><%= questions[0] %></p>
+                <p>
+                  <%= questions[0] %>
+                </p>
               </div>
 
               <div class="option-container">
                 <div class="option">
-                  <input
-                    type="radio"
-                    name="option"
-                    id="option1"
-                    value="<%= answersOneBoolean[0]%>"
-                  />
-                  <label for="option1"><%= answersOne[0] %></label>
+                  <input type="radio" name="option" id="option1" value="<%= answersOneBoolean[0]%>" />
+                  <label for="option1">
+                    <%= answersOne[0] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="option" id="option2" value="<%= answersOneBoolean[1]%>" />
-                  <label for="option2"><%= answersOne[1] %></label>
+                  <label for="option2">
+                    <%= answersOne[1] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="option" id="option3" value="<%= answersOneBoolean[2]%>" />
-                  <label for="option3"><%= answersOne[2] %></label>
+                  <label for="option3">
+                    <%= answersOne[2] %>
+                  </label>
                 </div>
 
                 <!-- <div class="option">
@@ -67,86 +71,90 @@
 
             <div class="question-wrapper">
               <div class="question">
-                <p><%= questions[1] %></p>
+                <p>
+                  <%= questions[1] %>
+                </p>
               </div>
 
               <div class="option-container">
                 <div class="option">
-                  <input
-                    type="radio"
-                    name="secondoption1"
-                    id="option2"
-                    value="<%= answersTwoBoolean[0] %>"
-                  />
-                  <label for="secondoption1"><%= answersTwo[0] %></label>
+                  <input type="radio" name="secondoption1" id="option2" value="<%= answersTwoBoolean[0] %>" />
+                  <label for="secondoption1">
+                    <%= answersTwo[0] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="secondoption1" id="option2" value="<%= answersTwoBoolean[1] %>" />
-                  <label for="secondoption1"><%= answersTwo[1] %></label>
+                  <label for="secondoption1">
+                    <%= answersTwo[1] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="secondoption1" id="option3" value="<%= answersTwoBoolean[2] %>" />
-                  <label for="secondoption1"><%= answersTwo[2] %></label>
+                  <label for="secondoption1">
+                    <%= answersTwo[2] %>
+                  </label>
                 </div>
 
-                
+
               </div>
             </div>
 
 
             <div class="question-wrapper">
               <div class="question">
-                <p><%= questions[2] %></p>
+                <p>
+                  <%= questions[2] %>
+                </p>
               </div>
 
               <div class="option-container">
                 <div class="option">
-                  <input
-                    type="radio"
-                    name="thirdoption1"
-                    id="option1"
-                    value="<%= answersThreeBoolean[0] %>"
-                  />
-                  <label for="thirdoption1"><%= answersThree[0] %></label>
+                  <input type="radio" name="thirdoption1" id="option1" value="<%= answersThreeBoolean[0] %>" />
+                  <label for="thirdoption1">
+                    <%= answersThree[0] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="thirdoption1" id="option2" value="<%= answersThreeBoolean[1] %>" />
-                  <label for="thirdoption1"><%= answersThree[1] %></label>
+                  <label for="thirdoption1">
+                    <%= answersThree[1] %>
+                  </label>
                 </div>
 
                 <div class="option">
                   <input type="radio" name="thirdoption1" id="option3" value="<%= answersThreeBoolean[2] %>" />
-                  <label for="thirdoption1"><%= answersThree[2] %></label>
+                  <label for="thirdoption1">
+                    <%= answersThree[2] %>
+                  </label>
                 </div>
 
-              
+
               </div>
             </div>
 
-            
 
-            <input
-              type="submit"
-              class="btn submit-btn-question"
-            />
+
+            <input type="submit" class="btn submit-btn-question" />
           </form>
         </div>
 
-       
-
-   
-
-    
 
 
-</div>
+
+
+
+
+
+        </div>
       </section>
     </main>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
-  </body>
+</body>
+
 </html>

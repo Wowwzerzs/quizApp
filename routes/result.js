@@ -1,37 +1,46 @@
 const express = require("express");
 const router = express.Router();
-const { getQuestionsCorrectAnswers, getUserProvidedAnswers } = require("../db/queries/results");
-const { getUserById } = require("../db/queries/users");
+const { getUsers } = require("../db/queries/users");
+const {
+  getResultByUserIdAndQuizId,
+  updateScore,
+} = require("../db/queries/results");
+const {
+  getQuizById,
+} = require("../db/queries/quiz");
 
-// Route to fetch quiz results by quizResultId
-router.get("/:quizResultId", async (req, res) => {
-  try {
-    // Fetch user information for _header.ejs conditionals
-    const user = await getUserById(req.session.userId);
+const findUserById = (id, arr) => {
+  return arr.filter((user) => user.id === id);
+};
 
-    // Get the correct answers for the quiz
-    const quizData = await getQuestionsCorrectAnswers(req.params.quizResultId);
+router.post("/", async (req, res) => {
+  const { userId } = req.session;
 
-    // Prepare template variables
-    const templateVars = {
-      user,
-      quizzes: quizData,
-      quizResult: quizData[0].quiz_result,
-      quizTitle: quizData[0].title,
-      req
-    };
+  const {
+    option: result1,
+    secondoption1: result2,
+    thirdoption1: result3,
+  } = req.body;
 
-    // Fetch answers provided by user
-    const providedAnswersData = await getUserProvidedAnswers(req.params.quizResultId);
+  const user = await getUsers();
+  const currentUser = findUserById(userId, user);
+  const dataQuiz = await getQuizById(currentUser[0].id);
+  const result = await getResultByUserIdAndQuizId(
+    currentUser[0].id,
+    dataQuiz.id
+  );
 
-    // Check if providedAnswersData is null and set templateVars.answers accordingly
-    templateVars.answers = providedAnswersData ? providedAnswersData[0].answers : [];
+  const getResult = result[0].quiz_result;
+  console.log(getResult);
 
-    res.render("result", templateVars);
-  } catch (err) {
-    console.error("Error loading quiz result: ", err);
-    res.redirect(302, `/error?message=${encodeURIComponent("Result not found")}`);
-  }
+  const score = [result1, result2, result3].filter(
+    (result) => result === "true"
+  ).length;
+  console.log(score);
+
+  const updatedScore = await updateScore(score, userId, dataQuiz.id);
+  console.log(updatedScore);
+  res.redirect("/users/quizzes");
 });
 
 module.exports = router;
