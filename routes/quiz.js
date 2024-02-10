@@ -160,7 +160,15 @@
 
 const express = require("express");
 const router = express.Router();
-const { createQuizArray, insertQuizAttempt, loadCorrectAnswers, findAnswerId, insertUserAnswer, addQuizResult, quizExistCheck } = require("../db/queries/quiz");
+const {
+  createQuizArray,
+  insertQuizAttempt,
+  loadCorrectAnswers,
+  findAnswerId,
+  insertUserAnswer,
+  addQuizResult,
+  quizExistCheck,
+} = require("../db/queries/quiz");
 const { validUserCheck } = require("../db/queries/login");
 const { getUserById } = require("../db/queries/users.js");
 
@@ -177,7 +185,10 @@ router.get("/:quiz_id", async (req, res) => {
     // Check if a quiz exists with the param id
     const quizExists = await quizExistCheck(req.params.quiz_id);
     if (!quizExists) {
-      res.redirect(302, `/error?message=${encodeURIComponent("Quiz does not exist")}`);
+      res.redirect(
+        302,
+        `/error?message=${encodeURIComponent("Quiz does not exist")}`
+      );
       return;
     }
 
@@ -191,16 +202,18 @@ router.get("/:quiz_id", async (req, res) => {
       questions: quizData,
       quizTitle: quizData[0].title,
       quizId: req.params.quiz_id,
-      user
+      user,
     };
 
-    res.render("../views/quiz", templateVars);
+    res.render("urls_questions", templateVars);
   } catch (err) {
     console.error("Error:", err);
-    res.redirect(302, `/error?message=${encodeURIComponent("Internal Server Error")}`);
+    res.redirect(
+      302,
+      `/error?message=${encodeURIComponent("Internal Server Error")}`
+    );
   }
 });
-
 
 // End point to handle quiz submission
 router.post("/:quiz_id", async (req, res) => {
@@ -248,7 +261,10 @@ router.post("/:quiz_id", async (req, res) => {
     res.redirect(302, `/result/${quizResultId}`);
   } catch (err) {
     console.error("Error:", err);
-    res.redirect(302, `/error?message=${encodeURIComponent("Internal Server Error")}`);
+    res.redirect(
+      302,
+      `/error?message=${encodeURIComponent("Internal Server Error")}`
+    );
   }
 });
 
