@@ -45,7 +45,6 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own~
-const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz");
@@ -65,9 +64,6 @@ app.use("/result", resultRoutes);
 app.use("/", homeRoutes, errorRoutes, logoutRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/new", newQuizRoutes);
-// app.use("/quizhistory", quizHistoryRoutes);
-// app.use("/leaderboards", leaderboardsRoutes);
-// app.use("/account", accountRoutes);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -76,9 +72,9 @@ app.use("/new", newQuizRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  res.render("urls_my_quizzes");
-});
+// app.get("/", (req, res) => {
+//   res.render("urls_my_quizzes");
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

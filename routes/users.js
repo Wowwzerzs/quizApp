@@ -1,8 +1,7 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ * This file defines routes related to user management, such as registration, login, and quizzes.
+ * These routes are mounted onto '/users' in server.js.
+ * For more information on routing in Express, see: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
 const express = require("express");
@@ -12,10 +11,12 @@ const { getQuizById } = require("../db/queries/quiz");
 const { getResultByUserIdAndQuizId } = require("../db/queries/results");
 const { validUserCheck } = require('../db/queries/login');
 
+// Function to find a user by ID in an array
 const findUserById = (id, arr) => {
   return arr.filter((user) => user.id === id);
 };
 
+// Route for user registration
 router.post("/register", async (req, res) => {
   try {
     const userInfo = await userExists(req.body.email);
@@ -38,7 +39,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// End point to serve registration page
+// Route to serve registration page
 router.get("/register", async (req, res) => {
   try {
     const validUser = await validUserCheck(req.session.userId);
@@ -53,23 +54,28 @@ router.get("/register", async (req, res) => {
   }
 });
 
+// Route to display user's quizzes
 router.get("/quizzes", async (req, res) => {
   try {
     const { userId } = req.session;
     const user = await getUsers();
-    const currentUser = findUserById(userId, user);
+    const currentUser = await findUserById(userId, user);
 
     if (!currentUser || !currentUser.length) {
       return res.status(404).send("User not found");
     }
 
     const data = await getQuizById(currentUser[0].id);
+    console.log(data);
+    console.log(currentUser[0].id);
     if (!data) {
       return res.status(404).send("Quiz not found");
     }
 
     const result = await getResultByUserIdAndQuizId(currentUser[0].id, data.id);
-    const score = result[0] ? result[0].quiz_result : null;
+
+    // Check if result is defined and has at least one element
+    const score = result && result.length > 0 ? result[0].quiz_result : null;
 
     const templateVars = {
       user: currentUser[0],
@@ -85,8 +91,7 @@ router.get("/quizzes", async (req, res) => {
   }
 });
 
-
-//CREATE QUIZE PAGE
+// Route to create a quiz page
 router.get("/create-quiz", async (req, res) => {
   try {
     const { userId } = req.session;
@@ -105,8 +110,34 @@ router.get("/create-quiz", async (req, res) => {
   }
 });
 
+// POST route to handle quiz creation submission
+router.post("/create-quiz", async (req, res) => {
+  try {
+    // Extract quiz data from request body
+    const { title, question1, question2, question3, answers1, answers2, answers3, correctAnswers } = req.body;
 
-// Serve login page
+    // Your logic to process the quiz data and save it to the database
+    // Example:
+    const quizData = {
+      title: title,
+      questions: [
+        { question: question1, answers: answers1, correctAnswer: correctAnswers[0] },
+        { question: question2, answers: answers2, correctAnswer: correctAnswers[1] },
+        { question: question3, answers: answers3, correctAnswer: correctAnswers[2] }
+      ]
+    };
+
+    // Save the quiz data to the database using your query function
+    await createNewQuiz(quizData);
+
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Route to serve login page
 router.get("/login", async (req, res) => {
   try {
     const validUser = await validUserCheck(req.session.userId);
@@ -121,7 +152,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
-// Post login credentials and check if they are valid
+// Route to handle login credentials
 router.post("/login", async (req, res) => {
   try {
     const userInfo = await userExists(req.body.email);
@@ -138,12 +169,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// GET route for displaying the signup form
+// Route to display the signup form
 router.get("/signup", (req, res) => {
   res.render("urls_login");
 });
 
-// POST route for handling user signup
+// Route to handle user signup
 router.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -168,4 +199,3 @@ router.post("/signup", async (req, res) => {
 });
 
 module.exports = router;
-
